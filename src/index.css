@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f6fa;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar li {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar li:hover {
+  color: #5f2c82;
+}
