@@ -17,13 +17,25 @@ export const getAttendanceStatus = async (): Promise<AttendanceStatusResponse> =
   return res.data;
 };
 
-export const startAttendance = async (payload: AttendancePayload) => {
-  const res = await axios.post("/attendance/start", payload);
+export const startAttendance = async (
+  payload: AttendancePayload
+) => {
+  const res = await api.post(
+    "/employee/attendance/start",
+    payload
+  );
+  console.log("payload-start=>",payload);
   return res.data;
 };
 
-export const stopAttendance = async (payload: AttendancePayload) => {
-  const res = await axios.post("/attendance/stop", payload);
+export const stopAttendance = async (
+  payload: AttendancePayload
+) => {
+  const res = await api.post(
+    "/employee/attendance/stop",
+    payload
+  );
+  console.log("payload-stop=>",payload);
   return res.data;
 };
 
