@@ -21,7 +21,7 @@ export const startAttendance = async (
   payload: AttendancePayload
 ) => {
   const res = await api.post(
-    "/employee/attendance/start",
+    "/attendance/start",
     payload
   );
   console.log("payload-start=>",payload);
@@ -32,7 +32,7 @@ export const stopAttendance = async (
   payload: AttendancePayload
 ) => {
   const res = await api.post(
-    "/employee/attendance/stop",
+    "/attendance/stop",
     payload
   );
   console.log("payload-stop=>",payload);
@@ -44,7 +44,7 @@ export const stopAttendance = async (
 export const fetchAttendanceStatus =
   async (): Promise<AttendanceStatus> => {
     const response = await api.get(
-      "/employee/attendance/status"
+      "/attendance/status"
     );
     return response.data;
   };

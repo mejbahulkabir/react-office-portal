@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://emarketers.in/dev/office-portal/public/api",
+  baseURL: " https://node-backend-office-portal-1.onrender.com/api",
   headers: {
     Accept: "application/json",
   },

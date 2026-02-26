@@ -14,7 +14,7 @@ export const fetchAttendanceApi = async (
   to: string
 ): Promise<AttendanceResponse> => {
   const response = await api.get<AttendanceResponse>(
-    "/employee/attendance/history",
+    "/attendance/history",
     {
       params: { from, to},
     }
