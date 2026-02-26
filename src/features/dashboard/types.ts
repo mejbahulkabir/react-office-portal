@@ -5,7 +5,13 @@ export interface DashboardSummary {
 }
 
 export interface AttendanceStatusResponse {
-  isCheckedIn: boolean;
+  attendance_started: boolean;
+  check_in: string | null;
+  check_out: string | null;
+  working_minutes: string;
+  overtime_minutes: string;
+  late_minutes: string;
+  deduction_day: string;
 }
 
 export interface AttendancePayload {
@@ -14,7 +20,7 @@ export interface AttendancePayload {
 }
 
 export interface AttendanceStatus {
-  attendance_status: boolean;
+  attendance_started: boolean;
   check_in: string | null;
   check_out: string | null;
   working_minutes: string;

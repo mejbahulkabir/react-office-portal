@@ -27,7 +27,7 @@ export const DashboardPage = () => {
         console.log("API DATA:", statusData); // 🔥 Debug
 
         setSummary(statusData); // ✅ IMPORTANT
-        setIsCheckedIn(statusData.attendance_status);
+        setIsCheckedIn(statusData.attendance_started);
       } catch (error) {
         console.error("Failed to load attendance status");
       }
@@ -65,7 +65,7 @@ export const DashboardPage = () => {
     // Refresh status
     const updatedStatus = await fetchAttendanceStatus();
     setSummary(updatedStatus);
-    setIsCheckedIn(updatedStatus.attendance_status);
+    setIsCheckedIn(updatedStatus.attendance_started);
 
   } catch (error: any) {
 
