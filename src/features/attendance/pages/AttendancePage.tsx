@@ -13,7 +13,7 @@ const AttendancePage = () => {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // ✅ Fetch last 10 days by default
+ 
   useEffect(() => {
     const today = new Date();
     const last10 = new Date();
@@ -60,7 +60,6 @@ const AttendancePage = () => {
     return `${h}h ${m}m`;
   };
 
-  // ✅ Pagination Logic
   const totalPages = Math.ceil(attendance.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentData = attendance.slice(

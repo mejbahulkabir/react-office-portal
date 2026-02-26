@@ -1,4 +1,3 @@
-// attendance/types.ts
 
 export interface AttendanceItem {
   id: number;

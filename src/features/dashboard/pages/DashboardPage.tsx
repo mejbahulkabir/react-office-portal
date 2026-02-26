@@ -18,15 +18,14 @@ export const DashboardPage = () => {
   const [isCheckedIn, setIsCheckedIn] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // ✅ Load dashboard data
   useEffect(() => {
     const loadData = async () => {
       try {
         const statusData = await fetchAttendanceStatus();
 
-        console.log("API DATA:", statusData); // 🔥 Debug
+        console.log("API DATA:", statusData); 
 
-        setSummary(statusData); // ✅ IMPORTANT
+        setSummary(statusData);
         setIsCheckedIn(statusData.attendance_started);
       } catch (error) {
         console.error("Failed to load attendance status");
@@ -38,7 +37,6 @@ export const DashboardPage = () => {
 
   
 
-  // ✅ Get Location
   const getLocation = (): Promise<GeolocationPosition> => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -69,11 +67,9 @@ export const DashboardPage = () => {
 
   } catch (error: any) {
 
-    // ✅ Handle backend conflict properly
     if (error.response?.status === 409) {
       alert(error.response.data.message);
     }
-    // ✅ Handle location error separately
     else if (error.code === 1) {
       alert("Location permission denied");
     }
