@@ -3,15 +3,24 @@ import { useDispatch } from 'react-redux';
 import { login } from '../authSlice';
 import { useState } from 'react';
 import '../../../styles/dashboard.css';
+import { CircularProgress } from '@mui/material';
 
 export default function LoginPage() {
   const dispatch = useDispatch<any>();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setloading] = useState(false);
 
-  const handleSubmit = () => {
-    dispatch(login({ email, password }));
+  const handleSubmit = async () => {
+    try {
+      setloading(true);
+      await dispatch(login({ email, password })).unwrap();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setloading(false);
+    }
   };
 
   return (
@@ -90,8 +99,18 @@ export default function LoginPage() {
           }}
         />
 
-        <Button fullWidth variant="contained" className="login-btn" onClick={handleSubmit}>
-          Login
+        <Button
+          fullWidth
+          variant="contained"
+          className="login-btn"
+          onClick={handleSubmit}
+          disabled={loading}
+          sx={{
+            position: 'relative',
+            height: 48,
+          }}
+        >
+          {loading ? <CircularProgress size={24} sx={{ color: '#fff' }} /> : 'Login'}
         </Button>
       </Paper>
     </Box>
